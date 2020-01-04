@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-const { database } = require('./keys'); //quiero database de ese archivo
-
-mongoose.connect(database.URI, {
+mongoose.connect(process.env.URLDB, {
         useNewUrlParser: true,
         useCreateIndex: true
     })

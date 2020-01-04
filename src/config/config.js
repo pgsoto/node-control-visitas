@@ -30,8 +30,10 @@ let urlDB
 
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/control-visitas'
+        // urlDB = 'mongodb+srv://pgsoto:toor189@cluster0-cxwfd.mongodb.net/control-visitas?retryWrites=true&w=majority'
 } else {
-    urlDB = process.env.MONGO_URI
+    // urlDB = process.env.MONGO_URI
+    urlDB = 'mongodb+srv://pgsoto:toor189@cluster0-cxwfd.mongodb.net/control-visitas?retryWrites=true&w=majority'
 }
 process.env.URLDB = urlDB
 

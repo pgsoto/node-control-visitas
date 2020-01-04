@@ -3,6 +3,7 @@ const ctrl = {}; //objeto controller
 const { Departamento } = require('../models');
 
 ctrl.index = async(req, res) => {
+    console.log('listar departamentos')
     Departamento.find()
         .exec((err, departamentos) => {
 
@@ -21,6 +22,7 @@ ctrl.index = async(req, res) => {
 };
 
 ctrl.insert = async(req, res) => {
+    console.log('insertar departamento')
     let body = req.body
 
     let departamento = new Departamento({

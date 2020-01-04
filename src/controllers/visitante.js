@@ -3,6 +3,7 @@ const ctrl = {}; //objeto controller
 const { Visitante } = require('../models');
 
 ctrl.index = async(req, res) => {
+    console.log('listar visitantes')
     Visitante.find()
         .exec((err, visitantes) => {
 
@@ -21,6 +22,7 @@ ctrl.index = async(req, res) => {
 };
 
 ctrl.insert = async(req, res) => {
+    console.log('insertar visitante')
     let body = req.body
 
     let visitante = new Visitante({

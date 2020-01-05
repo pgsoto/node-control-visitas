@@ -2,9 +2,11 @@ const ctrl = {}; //objeto controller
 
 const { Visitante } = require('../models');
 
-ctrl.index = async(req, res) => {
+ctrl.index = async (req, res) => {
     console.log('listar visitantes')
-    Visitante.find()
+    Visitante
+        .find()
+        .sort({ timestamp: -1 })
         .exec((err, visitantes) => {
 
             if (err) {
@@ -21,7 +23,7 @@ ctrl.index = async(req, res) => {
         })
 };
 
-ctrl.insert = async(req, res) => {
+ctrl.insert = async (req, res) => {
     console.log('insertar visitante')
     let body = req.body
 

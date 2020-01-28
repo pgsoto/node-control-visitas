@@ -25,8 +25,8 @@ module.exports = app => {
     app.use('/public', express.static(path.join(__dirname, '../public'))); //habilito la carpeta public desde los navegadores
 
     // // Error Handling
-    // if ('development' === app.get('env')) {
-    //     app.use(errorHandler()); //dejo activado en desarrollo esta libreria
-    // }
+    if ('development' === app.get('env')) {
+        app.use(errorHandler()); //dejo activado en desarrollo esta libreria
+    }
     return app;
 };

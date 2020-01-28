@@ -1,6 +1,6 @@
-const ctrl = {}; //objeto controller
+const ctrl = {}
 
-const { Departamento } = require('../models');
+const { Departamento } = require('../models')
 
 ctrl.index = async(req, res) => {
     console.log('listar departamentos')
@@ -19,7 +19,7 @@ ctrl.index = async(req, res) => {
                 departamentos
             })
         })
-};
+}
 
 ctrl.insert = async(req, res) => {
     console.log('insertar departamento')
@@ -44,6 +44,6 @@ ctrl.insert = async(req, res) => {
         })
 
     })
-};
+}
 
-module.exports = ctrl; //lo exporto
+module.exports = ctrl

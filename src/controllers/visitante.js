@@ -1,12 +1,13 @@
-const ctrl = {}; //objeto controller
+const ctrl = {}
 
-const { Visitante } = require('../models');
+const { Visitante } = require('../models')
 
 ctrl.index = async (req, res) => {
-    console.log('listar visitantes')
+    // console.log('listar visitantes')
     Visitante
         .find()
         .sort({ timestamp: -1 })
+        .populate('departamento', 'numero')
         .exec((err, visitantes) => {
 
             if (err) {
@@ -21,10 +22,10 @@ ctrl.index = async (req, res) => {
                 visitantes
             })
         })
-};
+}
 
 ctrl.insert = async (req, res) => {
-    console.log('insertar visitante')
+    // console.log('insertar visitante')
     let body = req.body
 
     let visitante = new Visitante({
@@ -32,7 +33,7 @@ ctrl.insert = async (req, res) => {
         rut: body.rut,
         departamento: body.departamento,
     })
-
+    
     visitante.save((err, visitanteDB) => {
 
         if (err) {
@@ -48,6 +49,6 @@ ctrl.insert = async (req, res) => {
         })
 
     })
-};
+}
 
-module.exports = ctrl; //lo exporto
+module.exports = ctrl

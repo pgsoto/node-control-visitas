@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const visitanteSchema = new Schema({
     rut: { type: String },
     nombre: { type: String },
-    departamento: { type: String },
+    departamento: { type: Schema.Types.ObjectId, ref: 'Departamento', required: true },
     timestamp: { type: Date, default: Date.now }
 });
 
